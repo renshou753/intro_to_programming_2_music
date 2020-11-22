@@ -42,16 +42,29 @@ function Needles() {
 				var w = ??
 				var h = ??
 				*/
+
+				var x = 80 + (width/2)*j
+				var y = 80 + (height/2)*i
+				var w = (width-240)/2
+				var h = (height-240)/2
 				//draw a rectangle at that location and size
 				rect(x, y, w, h);
 
 				//add on the ticks
 				// ??
+				this.ticks(80+w/2, 80+h, 'bass')
+				this.ticks(190+w/2+w, 80+h, 'lowMid')
+				this.ticks(80+w/2, 190+2*h, 'highmid')
+				this.ticks(190+w/2+w, 190+2*h, 'treble')
 
 				var energy = fourier.getEnergy(this.frequencyBins[currentBin]);
 
 				//add the needle
 				// ??
+				this.needle(energy, 80+w/2, 80+h)
+				this.needle(energy, 190+w/2+w, 80+h)
+				this.needle(energy, 80+w/2, 190+2*h)
+				this.needle(energy, 190+w/2+w, 190+2*h)
 
 				currentBin++;
 			}
